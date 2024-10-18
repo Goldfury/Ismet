@@ -51,9 +51,9 @@ public class NewServicePackagesTest {
     public void checkTarriifsOrder() {
         CataloguePage objCataloguePage = new CataloguePage(driver);
         objCataloguePage.goToOrderPage(tariffUrl, orderButtonXpath);
-        OrderFormPage objOrderFormPage = new OrderFormPage(driver);
-        objOrderFormPage.fillOrderForm();
-        Assert.assertTrue(objOrderFormPage.isTariffConfirmationDisplayed());
+        OrderForm objOrderForm = new OrderForm(driver);
+        objOrderForm.fillOrderForm();
+        Assert.assertTrue(objOrderForm.isTariffConfirmationDisplayed());
     }
 
     @After

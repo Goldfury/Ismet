@@ -22,6 +22,7 @@ public class AuthorizationTest {
     public void setUp() {
         driver = new ChromeDriver();
         driver.get(url);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test
@@ -37,7 +38,6 @@ public class AuthorizationTest {
     @DisplayName("Авторизация по смс коду")
     @Description("Поочередно вводит цифры для авторизации")
     public void authorizationBySmsCodeTest() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         AuthorizationFormPage objAuthorizationForm = new AuthorizationFormPage(driver);
         objAuthorizationForm.fillSMSAuthorizationForm(phoneNumber);
         Assert.assertTrue(objAuthorizationForm.accountId());
